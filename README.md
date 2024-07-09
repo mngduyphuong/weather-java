@@ -11,8 +11,8 @@ A Spring Boot application that fetches weather data from the OpenWeatherMap API 
 ## Technologies Used
 
 - **Java**
-- **TMaven**
-- **OpenWeatherMapAPI** (CSS framework)
+- **Maven**
+- **OpenWeatherMapAPI**
 
 ## Features
 
