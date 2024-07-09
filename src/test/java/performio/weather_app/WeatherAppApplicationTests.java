@@ -29,7 +29,6 @@ class WeatherAppApplicationTests {
 				.andReturn();
 
 		String content = result.getResponse().getContentAsString();
-		System.out.println(content);
 		assertNotNull(content);
 		assertTrue(content.contains("main"));
 		assertTrue(content.contains("description"));
@@ -48,7 +47,6 @@ class WeatherAppApplicationTests {
 				.andReturn();
 
 		String content = result.getResponse().getContentAsString();
-		System.out.println(content);
 		assertNotNull(content);
 		assertTrue(content.contains("main"));
 		assertTrue(content.contains("description"));

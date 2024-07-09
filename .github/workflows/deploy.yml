@@ -9,27 +9,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '17'
-        distribution: 'adopt'
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: "17"
+          distribution: "adopt"
 
-    - name: Build with Maven
-      env:
+      - name: Build with Maven
+        env:
           OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
-      run: mvn clean install
+        run: mvn clean install
 
-    - name: Run tests
-      env:
-        OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
-      run: mvn test
+      - name: Run tests
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+        run: mvn test
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: spring-boot-app
-        path: target/*.jar
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: spring-boot-app
+          path: target/*.jar
+
+      - name: Deploy to EC2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          EC2_PUBLIC_DNS: ${{ secrets.EC2_PUBLIC_DNS }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+        run: |
+          echo "$SSH_PRIVATE_KEY" > private_key.pem
+          chmod 600 private_key.pem
+          scp -i private_key.pem -o StrictHostKeyChecking=no *.jar $EC2_USER@$EC2_PUBLIC_DNS:/home/$EC2_USER/app.jar
+          ssh -i private_key.pem -o StrictHostKeyChecking=no $EC2_USER@$EC2_PUBLIC_DNS << 'EOF'
+          nohup java -jar /home/$EC2_USER/app.jar > /home/$EC2_USER/app.log 2>&1 &
+          EOF
