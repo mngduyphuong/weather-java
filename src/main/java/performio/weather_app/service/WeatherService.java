@@ -14,7 +14,6 @@ public class WeatherService {
     private final OpenWeatherConfig openWeatherConfig;
     private final RestTemplate restTemplate;
 
-    @Autowired
     public WeatherService(OpenWeatherConfig openWeatherConfig) {
         this.openWeatherConfig = openWeatherConfig;
         this.restTemplate = new RestTemplate();
