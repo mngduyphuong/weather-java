@@ -1,7 +1,6 @@
 package performio.weather_app.service;
 
 // dependencies
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +13,6 @@ public class WeatherService {
     private final OpenWeatherConfig openWeatherConfig;
     private final RestTemplate restTemplate;
 
-    @Autowired
     public WeatherService(OpenWeatherConfig openWeatherConfig) {
         this.openWeatherConfig = openWeatherConfig;
         this.restTemplate = new RestTemplate();
