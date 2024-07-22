@@ -30,50 +30,68 @@ A Spring Boot application that fetches weather data from the OpenWeatherMap API 
 - API key and AWS keys are kept secret
 
 ## Live demo
+
 You can access the live demo of the Java Weather App using the following endpoints:
+
 #### Health Check Endpoint
+
 To check if the application is up and running, access the health check endpoint:
+
 ```
 http://ec2-3-106-189-38.ap-southeast-2.compute.amazonaws.com:8080/healthcheck
 ```
+
 #### Weather Data Endpoint
+
 To fetch weather data for a specific location, use the weather endpoint. Replace 'melbourne,au' with your desired location:
+
 ```
 http://ec2-3-106-189-38.ap-southeast-2.compute.amazonaws.com:8080/weather?location=melbourne,au
 ```
 
 ## Local installation and Testing
+
 #### Prerequisites
+
 - JDK 17 or higher
 - OpenWeatherMap API key
 - Maven
-To run the application in local environment, please follow the below steps:
+  To run the application in local environment, please follow the below steps:
 - Clone the repository:
+
 ```
 git clone https://github.com/mngduyphuong/weather-java
 cd weather-java
 ```
+
 - Open the application.properties file located in src/main/resources and add your OpenWeather API key:
+
 ```
 OPENWEATHER_API_KEY=<YOUR_OPENWEATHER_API_KEY>
 ```
+
 - Run Unit testing
+
 ```
 mvn test
 ```
+
 - Run the application:
+
 ```
 mvn spring-boot:run
 ```
 
 ## Folder Structure
+
 Below is the main folder structure of the application:
+
 ```
 weather-app/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── performio/weather_app/
+│   │   │   └── application/weather_app/
 │   │   │       ├── controller/
 │   │   │       │   └── WeatherController.java
 │   │   │       ├── service/
@@ -87,7 +105,7 @@ weather-app/
 │   │       └── application.properties
 │   └── test/
 │       └── java/
-│           └── performio/weather_app/
+│           └── application/weather_app/
 │               └── WeatherAppApplicationTests.java
 ├── .github/
 │   └── workflows/

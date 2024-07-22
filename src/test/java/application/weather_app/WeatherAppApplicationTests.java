@@ -1,4 +1,4 @@
-package performio.weather_app;
+package application.weather_app;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;

@@ -1,12 +1,12 @@
-package performio.weather_app.service;
+package application.weather_app.service;
 
 // dependencies
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 // model, config
-import performio.weather_app.config.OpenWeatherConfig;
-import performio.weather_app.model.WeatherModel;
+import application.weather_app.config.OpenWeatherConfig;
+import application.weather_app.model.WeatherModel;
 
 @Service
 public class WeatherService {

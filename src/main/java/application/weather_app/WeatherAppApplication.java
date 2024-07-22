@@ -1,10 +1,10 @@
-package performio.weather_app;
+package application.weather_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 // import and enable config
-import performio.weather_app.config.OpenWeatherConfig;
+import application.weather_app.config.OpenWeatherConfig;
 
 @EnableConfigurationProperties(OpenWeatherConfig.class)
 @SpringBootApplication

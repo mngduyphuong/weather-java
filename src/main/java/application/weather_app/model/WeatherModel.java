@@ -1,4 +1,4 @@
-package performio.weather_app.model;
+package application.weather_app.model;
 
 import java.util.List;
 

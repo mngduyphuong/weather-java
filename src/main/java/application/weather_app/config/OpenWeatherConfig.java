@@ -1,4 +1,4 @@
-package performio.weather_app.config;
+package application.weather_app.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
